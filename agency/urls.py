@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from islands import views as island_views
+from islands import views as create_island
 from django.conf import settings
 from django.conf.urls.static import static 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("islands/", island_views.get_islands, name="island-list"),   
-]
+    path("islands/", island_views.get_islands, name="island-list"),
+    path("island/create/",island_views.create_island, name="create-island"),
+     
+    ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
